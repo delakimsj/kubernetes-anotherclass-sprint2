@@ -21,7 +21,7 @@ pipeline {
 
         stage('쿠버네티스 Blue배포') {
             steps {
-                sh "kubectl apply -f ./${CLASS_NUM}/deploy/k8s/blue/namespace.yaml"
+                sh "kubectl apply -f ./${CLASS_NUM}/deploy/k8s/blue/namespace.yaml --validate=false"
                 sh "kubectl apply -f ./${CLASS_NUM}/deploy/k8s/blue/configmap.yaml"
                 sh "kubectl apply -f ./${CLASS_NUM}/deploy/k8s/blue/secret.yaml"
                 sh "kubectl apply -f ./${CLASS_NUM}/deploy/k8s/blue/service.yaml"
